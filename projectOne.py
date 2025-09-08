@@ -78,23 +78,41 @@ def display_contact(ContactsDB, ContactID):
         print("An unexpected error occured")
 
 def list_all_contacts(ContactsDB):
-    #try:   
+    try:   
         for Keys in ContactsDB:
-            for contKeys in ContactsDB[Keys]:
-                for partkeys in ContactsDB[Keys][contKeys]:
-                    if isinstance(ContactsDB[Keys][contKeys][partkeys], dict):
-                        addKeys = ContactsDB[Keys][contKeys][partkeys].keys()
+            Keysed = ContactsDB[Keys].keys()
+            for partkeys in Keysed:
+                if isinstance(ContactsDB[Keys][partkeys], dict):
+                    addKeys = ContactsDB[Keys][partkeys].keys()
+                    for addPrts in addKeys:
+                        if ContactsDB[Keys][partkeys][addPrts] != "":
+                            print(f"{addPrts} is {ContactsDB[Keys][partkeys][addPrts]}")
+                else:
+                    if ContactsDB[Keys][partkeys] != "":
+                            print(f"{partkeys} is {ContactsDB[Keys][partkeys]}")
+    except:
+        print("An unexpected error occured")
+
+def Search_contacts_by_name(ContactsDB, name):
+    try:   
+        for Keys in ContactsDB:
+            Keysed = ContactsDB[Keys].keys()
+            if ContactsDB[Keys]['first_name'] == name:
+                for partkeys in Keysed:
+                    if isinstance(ContactsDB[Keys][partkeys], dict):
+                        addKeys = ContactsDB[Keys][partkeys].keys()
                         for addPrts in addKeys:
-                            if ContactsDB[Keys][contKeys][partkeys][addPrts] != "":
-                                print(f"{addPrts} is {ContactsDB[Keys][contKeys][partkeys][addPrts]}")
+                            if ContactsDB[Keys][partkeys][addPrts] != "":
+                                print(f"{addPrts} is {ContactsDB[Keys][partkeys][addPrts]}")
                     else:
-                        if ContactsDB[partkeys] != "":
-                                print(f"{partkeys} is {ContactsDB[Keys][contKeys][partkeys]}")
-    #except:
-    #    print("An unexpected error occured")
+                        if ContactsDB[Keys][partkeys] != "":
+                                print(f"{partkeys} is {ContactsDB[Keys][partkeys]}")
+    except:
+        print("An unexpected error occured")
 
 
 
 MakeContact(ContactsDB)
-list_all_contacts(ContactsDB)
+MakeContact(ContactsDB)
+Search_contacts_by_name(ContactsDB, 'James')
 
