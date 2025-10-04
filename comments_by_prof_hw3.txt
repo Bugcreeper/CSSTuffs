@@ -1,0 +1,20 @@
+1. Grading Rubric:
+   * String methods:          
+    * Receipt Formatting     5 out of 10
+    * Data Processing        10 out of 12
+    * Text Analysis          10 out of 13
+   * Regular Expression:     
+    * Pattern Finding        0 out of 10
+    * Format Validation      0 out of 12
+    * Information Extraction 0 out of 13
+   * Combined:                
+    * Cleaning Pipeline      0 out of 10
+    * Smart Replace          0 out of 10
+   * Application:            
+    * Log Analysis           0 out of 10 
+   
+Total: 25 out of 100
+
+Details:
+Line 37: not right way of calling range function
+Line 38: No alignment
